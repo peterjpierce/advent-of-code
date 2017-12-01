@@ -1,0 +1,5 @@
+var/
+*env/
+.idea/
+*.swp
+*.py[cod]
