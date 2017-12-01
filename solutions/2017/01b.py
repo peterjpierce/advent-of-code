@@ -1,5 +1,5 @@
 """
-Puzzle 1a for 2017
+Puzzle 1b for 2017
 
 See http://adventofcode.com/2017/day/1
 """
@@ -16,8 +16,8 @@ def run():
     with open(INPUT, 'r') as f:
         digits = f.read().strip()
 
-    wrapped = digits + digits[0]
-    answer = sum([int(d) for i, d in enumerate(digits) if d == wrapped[i+1]])
+    wrapped, increment = digits + digits, int(len(digits) / 2)
+    answer = sum([int(d) for i, d in enumerate(digits) if d == wrapped[i + increment]])
 
     print('answer is: %s' % str(answer))
     print('  elapsed: %f seconds' % util.elapsed_since(start_time))
