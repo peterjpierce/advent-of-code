@@ -16,10 +16,10 @@ necessary for shared modules and simplifies CLI args.  Call it with
 no arguments (or `-h` or `--help` or `help`) to see usage instructions:
 
 ```
-usage: run <problem #>
-   ex: run 2017-2a
-       run 2017/02a
-       run 2017/02a.py
+usage: run [yyyy/]<puzzle>  # defaults to latest year
+   ex: run 01a
+       run 2017/01a
+       run 2017/01a.py
 ```
 
 *(Note that arguments may take any of the forms shown.)*

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+me=$(basename $0)
+basedir=$(dirname $0)
+
+usage() {
+  echo "usage: $me [yyyy/]<puzzle>  # defaults to latest year"
+  echo "   ex: $me 01a"
+  echo "       $me 2017/01a"
+  echo "       $me 2017/01a.py"
+}
+
+die() { echo "$@" && exit 1; }
+
+([[ -z $1 ]] || [[ $1 == '-h' ]] || [[ $1 =~ help ]]) && usage && exit 0
+
+[[ -f $basedir/env/bin/activate ]] && source $basedir/env/bin/activate
+[[ -z $(which python3) ]] && die "these solutions require Python 3"
+
+puzzle=$(echo "$1" | perl -pe 's/(\d+\/)?(\w+)(\.py)?/$2/;')
+year=$(echo "$1" | perl -pe 's/((20\d{2})\/)?.*/$2/;')
+[[ -z $year ]] && year=$(ls $basedir/solutions | sort | tail -n 1)
+
+label=$year/$puzzle
+solution=$basedir/solutions/${label}.py
+
+[[ -f $solution ]] || die "cannot find solution '$label'"
+
+export PYTHONPATH=${basedir}:$PYTHONPATH
+python3 $solution $@
