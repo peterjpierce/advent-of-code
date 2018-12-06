@@ -1,7 +1,7 @@
 """
 Puzzle 2a for 2018
 
-See https://adventofcode.com/2018/day/1
+See https://adventofcode.com/2018/day/2
 """
 from common import util
 import os

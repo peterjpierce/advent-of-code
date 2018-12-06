@@ -1,7 +1,7 @@
 """
 Puzzle 3a for 2018
 
-See https://adventofcode.com/2018/day/1
+See https://adventofcode.com/2018/day/3
 """
 from collections import namedtuple
 from common import util
