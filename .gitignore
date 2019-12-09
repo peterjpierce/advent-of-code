@@ -1,5 +1,6 @@
 var/
 *env/
+.vscode/
 .idea/
 *.swp
 *.py[cod]
